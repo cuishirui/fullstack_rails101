@@ -15,7 +15,7 @@
       <% @groups.each do |group|%>
         <tr>
           <td>#</td>
-          <td><%= group.title%></td>
+          <td><%= link_to group.title, group%></td>
           <td><%= group.description%></td>
           <td>
             <%= link_to("Delete", group_path(group), method: :delete, class: "btn btn-default", data: {confirm: "are you sure?"})%>

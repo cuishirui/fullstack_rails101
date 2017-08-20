@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Edit</h1>
+  <%= form_for @group do |f|%>
+    <%= f.text_field :title %>
+    <%= f.text_area :description%>
+    <%= f.submit "submit", :disable_with => 'submitting....'%>
+  <% end %>
+</div>
