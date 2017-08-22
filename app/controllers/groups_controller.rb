@@ -20,7 +20,7 @@ class GroupsController < ApplicationController
     end
   end
 
-  def edit    
+  def edit
   end
 
   def update
@@ -39,6 +39,9 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @post = Post.new
+
+    @posts = @group.posts
   end
 
 
