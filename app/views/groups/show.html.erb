@@ -7,8 +7,10 @@
   <div class="pull-right">
     <% if current_user && current_user.is_member_of?(@group)%>
       <label class="label label-success">Groups</label>
+      <%= link_to("Quit Group", quit_group_path(@group),method: :post, class: "btn btn-default")%>
     <% else %>
       <label  class="label label-danger">stranger</label>
+      <%= link_to("Join Group", join_group_path(@group), method: :post, class: "btn btn-default")%>
     <% end %>
   </div>
   <table class="table table-hover">
@@ -24,8 +26,12 @@
   </div>
 </div>
 <div class="container">
-  <%= simple_form_for [@group,@post] do |f|%>
-    <%= f.input :content%>
-    <%= f.submit "submit", data: { disable_with: "submitting...."}%>
+  <% if current_user.is_member_of?(@group)%>
+    <%= simple_form_for [@group,@post] do |f|%>
+      <%= f.input :content%>
+      <%= f.submit "submit", data: { disable_with: "submitting...."}%>
+    <% end %>
+  <% else %>
+    <h1 class="text-center">Join this group and write a posts</h1>
   <% end %>
 </div>
