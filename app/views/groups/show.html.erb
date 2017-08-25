@@ -26,7 +26,7 @@
   </div>
 </div>
 <div class="container">
-  <% if current_user.is_member_of?(@group)%>
+  <% if current_user && current_user.is_member_of?(@group)%>
     <%= simple_form_for [@group,@post] do |f|%>
       <%= f.input :content%>
       <%= f.submit "submit", data: { disable_with: "submitting...."}%>

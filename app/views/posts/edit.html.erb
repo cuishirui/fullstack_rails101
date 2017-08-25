@@ -1,0 +1,4 @@
+<%= simple_form_for [@group, @post] do |f|%>
+  <%= f.input :content%>
+  <%= f.submit "submit", data: { disable_with: "submitting..."}%>
+<% end %>

@@ -1,0 +1,23 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <th>content</th>
+      <th>writer</th>
+      <th>Option</th>
+      <th>Last Update</th>
+    </thead>
+    <tbody>
+      <% @posts.each do |post|%>
+        <tr>
+          <td><%= post.content%></td>
+          <td><%= post.user.email%></td>
+          <td>
+            <%= link_to("Edit", edit_group_post_path(post.group, post), class: "btn btn-default")%>
+            <%= link_to("Delete",group_post_path(post.group, post), method: :delete, class: "btn btn-default",data: {confirm: "are you sure?"})%>
+          </td>
+          <td><%= post.created_at.to_date%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
